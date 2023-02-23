@@ -1,0 +1,42 @@
+[
+  {
+    "bank": "Bank of Georgia",
+    "rates": [
+      {
+        "currency": "USD",
+        "buy": "2.6530",
+        "sell": "2.6820"
+      },
+      {
+        "currency": "EUR",
+        "buy": "2.8205",
+        "sell": "2.9330"
+      },
+      {
+        "currency": "RUB",
+        "buy": "0.0308",
+        "sell": "0.0410"
+      }
+    ] 
+  },
+  {
+    "bank": "TBC",
+    "rates": [
+      {
+        "currency": "USD",
+        "buy": "2.6530",
+        "sell": "2.6820"
+      },
+      {
+        "currency": "EUR",
+        "buy": "2.8205",
+        "sell": "2.9330"
+      },
+      {
+        "currency": "RUB",
+        "buy": "0.0308",
+        "sell": "0.0410"
+      }
+    ] 
+  }
+]

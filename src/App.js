@@ -1,75 +1,34 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';  
+import ExchangeForm from './components/form'
+import Rates from './rates.json'
 
-let testArr = [
-  {
-    "bank": "Bank of Georgia",
-    "rates": [
-      {
-        "currency": "USD",
-        // "sign": "$",
-        "buy": "2.6530",
-        "sell": "2.6820"
-      },
-      {
-        "currency": "EUR",
-        // "sign": "€",
-        "buy": "2.8205",
-        "sell": "2.9330"
-      },
-      {
-        "currency": "RUB",
-        // "sign": "₽",
-        "buy": "0.0308",
-        "sell": "0.0410"
-      }
-    ] 
-  },
-  {
-    "bank": "TBC",
-    "rates": [
-      {
-        "currency": "USD",
-        // "sign": "$",
-        "buy": "2.6530",
-        "sell": "2.6820"
-      },
-      {
-        "currency": "EUR",
-        // "sign": "€",
-        "buy": "2.8205",
-        "sell": "2.9330"
-      },
-      {
-        "currency": "RUB",
-        // "sign": "₽",
-        "buy": "0.0308",
-        "sell": "0.0410"
-      }
-    ] 
-  }
-]
+// let testArr = [
+// ]
 
 function App() {
-  // console.log(testArr.map(el => el.bank))
+  // console.log('rates', Rates[0])
+  // console.log(Rates[0].rates.filter(rate => rate.currency === "USD"))
   return (
     <div className="App">
       <Container>
-        <h1>Курсы валют</h1>
+        <h4>openexchange.com</h4>
+        <ExchangeForm />
+
         <Table>
           <thead>
             <tr>
               <th>Банк</th>
               <th>Покупает $</th>
               <th>Продает $</th>
-              <th>Покупает €</th>
-              <th>Продает €</th>
-              <th>Покупает ₽</th>
-              <th>Продает ₽</th>
             </tr>
           </thead>
           <tbody>
-            {testArr.map((el, index) =>
+            {Rates.map((el, index) =>
+              // тут нужно еще вытащить buy, sell
+              <p key={index}>{el.rates.filter(rate => rate.currency === "USD")}</p>
+            )}
+            {/* {Rates.map((el, index) =>
               <tr key={index}>
                 <td>{el.bank}</td>
                 {el.rates.map((rate, index) =>
@@ -83,20 +42,7 @@ function App() {
                   </>
                 )}
               </tr>
-            )}
-            {/* <tr>
-              <td>Bank name</td>
-              {testArr[0].rates.map((el, index) =>
-                <>
-                  <td class="text-success">
-                    {el.buy}
-                  </td>
-                  <td class="text-danger">
-                    {el.sell}
-                  </td>
-                </>
-              )}
-            </tr> */}
+            )} */}
           </tbody>
         </Table>
       </Container>
