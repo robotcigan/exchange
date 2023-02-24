@@ -1,0 +1,157 @@
+a
+  display: inline-block
+  font-size: 1.6rem
+  line-height: 1.4
+  // margin-bottom: .5em
+  margin-top: 0
+
+p
+  color: $main
+  display: block
+  font-size: 2rem
+  font-weight: 400
+  // line-height: (26 / 16)
+  line-height: 1.4
+  margin-bottom: 1em
+  margin-top: 0
+  & + p
+    margin-top: -1.5em
+  & + .btn
+    margin-top: -1em
+  a
+    color: $primary !important
+    // +linkHover($primary)
+    &:before
+      bottom: -.05em
+  .link
+    display: inline
+
+h1
+  font-family: $font-decorate
+  font-size: 4rem
+  font-weight: 800
+  font-style: italic
+  line-height: 1.2
+  // letter-spacing: -.05em
+  margin-bottom: .5em
+  margin-top: 0
+  &_long
+    font-size: 4rem
+
+h2
+  font-family: $font-decorate
+  font-size: 2.4rem
+  font-weight: 600
+  line-height: 1
+  //letter-spacing: -2px
+  margin-top: 0
+  margin-bottom: .5em
+
+h3
+  font-family: $font
+  font-size: 3.2rem
+  font-weight: 500
+  line-height: 1.2
+  margin-bottom: .75em
+  margin-top: 0
+
+
+h4
+  font-family: $font
+  font-size: 2.4rem
+  font-weight: 500
+  // line-height: (32 / 24)
+  line-height: 1.2
+  margin-bottom: .75em
+  margin-top: 0
+
+h5
+  font-family: $font
+  font-size: 1.4rem
+  font-weight: 700
+  letter-spacing: 1px
+  margin: 0
+  text-transform: uppercase
+
+// ol
+//   counter-reset item
+//   margin-left 0
+//   // padding-left 3.2rem
+//   padding-left 1.2em
+
+small
+  color: $gray
+  display: block
+  font-size: 1.2rem
+  line-height: 1.6
+  margin-bottom: 2em
+  a
+    color: $main
+    // +linkHover($primary)
+
+strong
+  display: block
+  font-size: 1.8rem
+  letter-spacing: -.5px
+  line-height: 1.5
+  font-weight: 500
+  margin-bottom: .7em
+
+.header-center
+  text-align: center
+
+ol
+  margin: 0
+  margin-bottom: 2.5em
+  padding: 0
+  padding-left: 1.2em
+  li
+    font-size: 1.8rem
+    font-weight: 300
+    line-height: 1.6
+    margin-bottom: .5em
+    margin-left: 0
+    position: relative
+    vertical-align: top
+
+ul
+  margin: 0
+  margin-bottom: 2em
+  list-style-type: none
+  padding-left: 0
+  li
+    display: block
+    font-size: 1.8rem
+    line-height: 1.6
+    margin-bottom: .75em
+    margin-left: 0
+    position: relative
+    vertical-align: top
+    &:before
+      background-color: $gray
+      border-radius: 50%
+      content: ''
+      display: block
+      left: -.8em
+      position: relative
+      // +size(4px)
+      top: .9em
+      transition: width 1s cubic-bezier(.4,0,0,1) .4s
+      vertical-align: middle
+
+blockquote
+  font-size: 2.4rem
+  font-weight: 500
+  // line-height: (32 / 24)
+  line-height: 1.2
+  margin: 0
+  margin-bottom: 4rem
+  position: relative
+  &:before
+    // content: url('../../img/services-quote.svg')
+    content: '`'
+    left: -5.6rem
+    position: absolute
+    top: -.6rem
+
+
