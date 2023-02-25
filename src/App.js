@@ -17,21 +17,24 @@ function App() {
         <h4>openexchange.com</h4>
         <ExchangeForm />
 
-        <thead>
-          <tr>
-            <th>Банк</th>
-            <th>Покупает $</th>
-            <th>Продает $</th>
-          </tr>
-        </thead>
+        <div className='cell-header'>
+          <div>Банк</div>
+          <div>Покупает $</div>
+          <div>Продает $</div>
+        </div>
 
         {Rates.map((el, index) => {
           let currency = el.rates.filter(rate => rate.currency === "USD")
           return(
-            <React.Fragment key={index}>
-              <p>{currency[0].buy}</p>
-              <p>{currency[0].sell}</p>
-            </React.Fragment>
+            <div className='cell' key={index}>
+              <div className='cell_left'>
+                <span>{el.bank}</span>
+              </div>
+              <div className="cell_right">
+                <span className='cell_right-text text-red'>{currency[0].buy}</span>
+                <span className='text-green'>{currency[0].sell}</span>
+              </div>
+            </div>
           )
         })}
 

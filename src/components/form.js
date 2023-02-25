@@ -7,23 +7,21 @@ export default function ExchangeForm() {
   const [currencyTo, setCurrencyTo] = useState(94.42)
   function handleChangeCurrencyFrom(event) {
     setCurrencyFrom(event.target.value)
-    setCurrencyTo(event.target.value * 0.95)
+    setCurrencyTo((event.target.value * 0.95).toFixed(2))
   }
   function handleChangeCurrencyTo(event) {
     setCurrencyTo(event.target.value)
-    setCurrencyFrom(event.target.value * 1.06)
+    setCurrencyFrom((event.target.value * 1.06).toFixed(2))
   }
   return (
-    <Form>
-      <Form.Group className="mb-3">
-        <Form.Label>$</Form.Label>
-        <Form.Control type="number" value={currencyFrom} name="currencyFrom" onChange={handleChangeCurrencyFrom} />
-      </Form.Group>
+    <>
+      <div className="form-control">
+        <input type="number" value={currencyFrom} name="currencyFrom" onChange={handleChangeCurrencyFrom} />
+      </div>
 
-      <Form.Group className="mb-3">
-        <Form.Label>€</Form.Label>
-        <Form.Control type="number" value={currencyTo} name="currencyTo" onChange={handleChangeCurrencyTo} />
-      </Form.Group>
-    </Form>
+      <div className="form-control">
+        <input type="number" value={currencyTo} name="currencyTo" onChange={handleChangeCurrencyTo} />
+      </div>
+    </>
   );
 }
