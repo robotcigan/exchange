@@ -1,0 +1,28 @@
+.modal
+  align-items: flex-end
+  background: rgba(var(--color-main))
+  display: none
+  left: 0
+  height: 100%
+  opacity: 0
+  padding: 1rem
+  position: absolute
+  top: 0
+  width: 100%
+  &--open
+    display: flex
+    opacity: 1
+  &__container
+    background: var(--light-bg-0)
+    border-radius: 2rem
+    padding: .75rem
+    width: 100%
+  &__top
+    align-items: center
+    display: flex
+    // justify-content: flex-end
+    padding: 1.5rem
+  &__header
+    margin-left: 4rem
+    text-align: center
+    width: 100%

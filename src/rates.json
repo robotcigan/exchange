@@ -1,6 +1,7 @@
 [
   {
     "bank": "Bank of Georgia",
+    "img": "bank-of-georgia",
     "rates": [
       {
         "currency": "USD",
@@ -21,6 +22,7 @@
   },
   {
     "bank": "TBC",
+    "img": "tbc",
     "rates": [
       {
         "currency": "USD",
