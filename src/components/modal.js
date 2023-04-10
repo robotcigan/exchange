@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 
-export default function Modal({isModalOpen}) {
-  // console.log(isModalOpen)
-  const [currentCurrency, setCurrentCurrency] = useState('dollar')
+export default function Modal({isModalOpen, closeModal}) {
+  const [currentCurrency, setCurrentCurrency] = useState()
   function changeCurrency(e) {
     setCurrentCurrency(e.target.getAttribute('data-currency'))
-    console.log(e.target.getAttribute('data-currency'), currentCurrency)
+    console.log('currency in modal is', currentCurrency)
+    // console.log(e.target.getAttribute('data-currency'), currentCurrency)
+    closeModal(e.target.getAttribute('data-currency'))
   }
 
   return(
@@ -14,7 +15,7 @@ export default function Modal({isModalOpen}) {
         <div className="modal__container">
           <div className="modal__top">
             <div className="modal__header">Выберите валюту</div>
-            <div className="modal__close">
+            <div onClick={() => closeModal()} className="modal__close">
               <img src="./img/cross.svg" alt="" />
             </div>
           </div>
