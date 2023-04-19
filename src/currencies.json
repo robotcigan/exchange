@@ -1,18 +1,27 @@
 [
   {
     "name": "dollar",
+    "rus": "Доллар",
     "sign": "$"
   }, 
   {
     "name": "lari",
+    "rus": "Лари",
     "sign": "GEL"
   },
   {
+    "name": "dram",
+    "rus": "Драм",
+    "sign": "AMD"
+  },
+  {
     "name": "euro",
+    "rus": "Евро",
     "sign": "€"
   },
   {
     "name": "ruble",
+    "rus": "Рубль",
     "sign": "₽"
   }
 ]

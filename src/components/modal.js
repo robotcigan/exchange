@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
 
-export default function Modal({isModalOpen, closeModal}) {
-  const [currentCurrency, setCurrentCurrency] = useState()
+export default function Modal({isModalOpen, closeModal, currencies, selectedCurrency, test = 'some'}) {
+  const [currentCurrency, setCurrentCurrency] = useState(test)
+  console.log(selectedCurrency, 'in modal')
+  // console.log('валюты', currencies)
+  // const currencyNameList = ['dollar', 'euro', 'ruble', 'dram', 'lari']
+  const currencyList = currencies.map(el =>
+    <div
+      onClick={changeCurrency}
+      data-currency={el.name}
+      className={`currency-select__item ${test === "some dollar" ? "currency-select__item--active" : ""}`}>{el.rus}
+    </div>
+  )
+
+
   function changeCurrency(e) {
     setCurrentCurrency(e.target.getAttribute('data-currency'))
     console.log('currency in modal is', currentCurrency)
@@ -19,13 +31,15 @@ export default function Modal({isModalOpen, closeModal}) {
               <img src="./img/cross.svg" alt="" />
             </div>
           </div>
-          <ul className="currency-select">
-            <li onClick={changeCurrency} data-currency="dollar" className="currency-select__item currency-select__item--active">Доллар</li>
-            <li onClick={changeCurrency} data-currency="euro" className="currency-select__item">Евро</li>
-            <li onClick={changeCurrency} data-currency="ruble" className="currency-select__item">Рубль</li>
-            <li onClick={changeCurrency} data-currency="lari"  className="currency-select__item">Лари</li>
-            <li onClick={changeCurrency} data-currency="dram"  className="currency-select__item">Драм</li>
-          </ul>
+          <div className="currency-select">
+            <div
+              onClick={changeCurrency}
+              data-currency="dollar"
+              // className="currency-select__item currency-select__item--active">Доллар
+              className={`currency-select__item ${test === "some dollar" ? "currency-select__item--active" : ""}`}>Доллар
+            </div>
+            {currencyList}
+          </div>
         </div>
       </div>
     </>

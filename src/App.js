@@ -1,21 +1,21 @@
 import React from 'react';
-// import Container from 'react-bootstrap/Container';
 import ExchangeForm from './components/form'
 import Rates from './rates.json'
+import Currencies from './currencies.json'
 
 import './styles/main.sass' 
 
 function App() {
-  // console.log(Rates[0].rates.filter(rate => {
-  //   let currency = rate.currency === "USD"
-  //   return currency
-  // }))
+
+  const defaultCurrencies = {}
+  defaultCurrencies.from = Currencies.filter(el => el.name === 'dollar')[0]
+  defaultCurrencies.to = Currencies.filter(el => el.name === 'euro')[0]
 
   return (
     <div className="App">
       <div className='wrapper'>
         <h4>openexchange.com</h4>
-        <ExchangeForm />
+        <ExchangeForm defaultCurrencies={defaultCurrencies} />
 
         <div className='cell'>
           <div className='cell__left'>
