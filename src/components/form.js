@@ -4,22 +4,39 @@ import Currencies from '../currencies.json'
 
 export default function ExchangeForm({defaultCurrencies}) {
 
-  const [currencyFrom, setCurrencyFrom] = useState(defaultCurrencies.from.sign)
-  const [currencyTo, setCurrencyTo] = useState(defaultCurrencies.to.sign)
+  const [currencyFrom, setCurrencyFrom] = useState({
+    name: defaultCurrencies.from.name,
+    sign: defaultCurrencies.from.sign,
+    value: 100
+  })
+  const [currencyTo, setCurrencyTo] = useState({
+    name: defaultCurrencies.to.name,
+    sign: defaultCurrencies.to.sign,
+    value: 94.42
+  })
 
-  const [currencyFromValue, setCurrencyFromValue] = useState(100)
-  const [currencyToValue, setCurrencyToValue] = useState(94.42)
   const [isModalOpen, setIsModalOpen] = useState(false)
-
   const [selectedCurrency, setSelectedCurrency] = useState()
 
   function handleChangeCurrencyFrom(event) {
-    setCurrencyFromValue(event.target.value)
-    setCurrencyToValue((event.target.value * 0.95).toFixed(2))
+    setCurrencyFrom(prevState => ({
+      ...prevState,
+      value: event.target.value
+    }))
+    setCurrencyTo(prevState => ({
+      ...prevState,
+      value: (event.target.value * 0.95).toFixed(2)
+    }))
   }
   function handleChangeCurrencyTo(event) {
-    setCurrencyToValue(event.target.value)
-    setCurrencyFromValue((event.target.value * 1.06).toFixed(2))
+    setCurrencyFrom(prevState => ({
+      ...prevState,
+      value: (event.target.value * 1.06).toFixed(2)
+    }))
+    setCurrencyTo(prevState => ({
+      ...prevState,
+      value: event.target.value
+    }))
   }
 
   function openModal(event) {
@@ -42,16 +59,16 @@ export default function ExchangeForm({defaultCurrencies}) {
   return (
     <>
       <div className="form-control">
-        <input type="number" value={currencyFromValue} name="currencyFrom" onChange={handleChangeCurrencyFrom} />
+        <input type="number" value={currencyFrom.value} name="currencyFrom" onChange={handleChangeCurrencyFrom} />
         <button onClick={openModal} data-input="from" className="form-control__icon">
-          <div className="currency-sign">{currencyFrom}</div>
+          <div className="currency-sign">{currencyFrom.sign}</div>
         </button>
       </div>
 
       <div className="form-control">
-        <input type="number" value={currencyToValue} name="currencyTo" onChange={handleChangeCurrencyTo} />
+        <input type="number" value={currencyTo.value} name="currencyTo" onChange={handleChangeCurrencyTo} />
         <button onClick={openModal} data-input="to" className="form-control__icon">
-          <div className="currency-sign currency-sign--symbol">{currencyTo}</div>
+          <div className="currency-sign currency-sign--symbol">{currencyTo.sign}</div>
         </button>
       </div>
       
